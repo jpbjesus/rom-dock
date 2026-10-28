@@ -1,0 +1,798 @@
+/* Light appearance is an explicit user preference; all core surfaces are themed. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --accent: #337acb;
+  --muted: #6c7281;
+  --line: #d7d9df;
+  color: #303440;
+  background: #fafafa;
+}
+[data-theme="light"] .finder-shell {
+  background: #fafafa;
+  color: #303440;
+}
+[data-theme="light"] .sidebar {
+  background: #eef0f3;
+  border-color: #d1d5dc;
+}
+[data-theme="light"] .brand-symbol {
+  background: #d5e1ef;
+  color: #466b94;
+}
+[data-theme="light"] .brand-light {
+  color: #748096;
+}
+[data-theme="light"] .finder-sidebar-label {
+  color: #7f8795;
+}
+[data-theme="light"] .finder-location,
+[data-theme="light"] .system-nav {
+  color: #525d70;
+}
+[data-theme="light"] .finder-location.active,
+[data-theme="light"] .system-nav.active {
+  background: #d7dce5;
+  color: #263d5c;
+}
+[data-theme="light"] .finder-location:hover,
+[data-theme="light"] .system-nav:hover {
+  background: #e1e5eb;
+}
+[data-theme="light"] .finder-location > svg,
+[data-theme="light"] .system-nav > svg,
+[data-theme="light"] .system-nav > .system-icon {
+  color: #507eaf;
+}
+[data-theme="light"] .finder-count {
+  color: #7a8597;
+}
+[data-theme="light"] .finder-all,
+[data-theme="light"] .finder-settings {
+  color: #69778a;
+}
+[data-theme="light"] .finder-connection {
+  color: #667489;
+}
+[data-theme="light"] .finder-storage {
+  color: #7b8797;
+}
+[data-theme="light"] .storage-track {
+  background: #d4dae4;
+}
+[data-theme="light"] .storage-track > i {
+  background: #8aa8c9;
+}
+[data-theme="light"] .finder-toolbar {
+  background: #f0f0f2;
+  border-color: #d7d9df;
+  box-shadow: 0 1px #fff8;
+}
+[data-theme="light"] .finder-title h1 {
+  color: #343b49;
+}
+[data-theme="light"] .finder-title > span {
+  color: #929ba9;
+}
+[data-theme="light"] .icon-button {
+  color: #7a8392;
+}
+[data-theme="light"] .icon-button:hover:not(:disabled) {
+  background: #526c8a0c;
+  color: #3a526f;
+}
+[data-theme="light"] .icon-button.active {
+  background: #dfe5ec;
+  color: #506b8c;
+}
+[data-theme="light"] .finder-toolbar > .theme-switch {
+  color: #687992;
+}
+[data-theme="light"] .button {
+  background: #fff;
+  border-color: #cdd2db;
+  color: #5a677b;
+  box-shadow: 0 1px 2px #26374b0b;
+}
+[data-theme="light"] .button:hover:not(:disabled) {
+  background: #f3f6fa;
+}
+[data-theme="light"] .button.primary {
+  background: #367ac8;
+  border-color: #3d81d1;
+  color: #fff;
+}
+[data-theme="light"] .button.primary:hover:not(:disabled) {
+  background: #2e6eb8;
+}
+[data-theme="light"] .button.danger {
+  background: #c86862;
+  border-color: #c86862;
+  color: #fff;
+}
+[data-theme="light"] .browser-sticky-controls {
+  background: #fafafa;
+  border-color: #e2e5eb;
+  box-shadow: 0 6px 9px -9px #26374b22;
+}
+[data-theme="light"] .breadcrumbs button {
+  color: #7a889d;
+}
+[data-theme="light"] .breadcrumbs > button > svg {
+  color: #7e9fc8;
+}
+[data-theme="light"] .crumb {
+  color: #b3bdca;
+}
+[data-theme="light"] .crumb:last-child > button {
+  color: #596d87;
+}
+[data-theme="light"] .file-search {
+  background: #fff;
+  border-color: #d5dbe5;
+  color: #9aa7ba;
+  box-shadow: inset 0 1px 2px #26374b02;
+}
+[data-theme="light"] .file-search input {
+  color: #53667f;
+}
+[data-theme="light"] .file-search input::placeholder {
+  color: #9ba6b7;
+}
+[data-theme="light"] .filter-tabs {
+  background: #edf0f4;
+}
+[data-theme="light"] .filter-tabs button {
+  color: #8590a2;
+}
+[data-theme="light"] .filter-tabs button.active {
+  background: #dce2eb;
+  color: #566c89;
+}
+[data-theme="light"] .sort-fields > button {
+  color: #919bac;
+}
+[data-theme="light"] .sort-fields > button.active {
+  color: #587195;
+  background: #e9eef5;
+}
+[data-theme="light"] .sort-fields > button:hover {
+  background: #e8edf4;
+  color: #4e688b;
+}
+[data-theme="light"] .sort-fields > button > svg {
+  color: #6e8cb0;
+}
+[data-theme="light"] .view-toggle {
+  background: #e7e9ee;
+  border-color: #d3d9e3;
+}
+[data-theme="light"] .view-toggle button {
+  color: #8d98aa;
+}
+[data-theme="light"] .view-toggle button.active {
+  background: #fff;
+  color: #556e91;
+  box-shadow: 0 1px 3px #26374b10;
+}
+[data-theme="light"] .grid-size-control {
+  color: #9da9ba;
+}
+[data-theme="light"] .grid-size-control > input {
+  accent-color: #7899c4;
+}
+[data-theme="light"] .covers-toggle.active {
+  background: #e8eef6;
+  color: #587ba6;
+}
+[data-theme="light"] .parent-folder {
+  color: #889ab1;
+}
+[data-theme="light"] .file-card {
+  color: #46556a;
+}
+[data-theme="light"] .file-card:hover {
+  background: #526b8f04;
+}
+[data-theme="light"] .card-body:hover {
+  background: #526b8f05;
+}
+[data-theme="light"] .card-subtitle {
+  color: #95a0b0;
+}
+[data-theme="light"] .card-icon > svg {
+  fill: #f0f3f8;
+  stroke: #a7b6ca;
+}
+[data-theme="light"] .card-icon.folder > svg {
+  fill: #79b9e1;
+  stroke: #9ccfec;
+  filter: drop-shadow(0 2px 2px #397bb215);
+}
+[data-theme="light"] .card-kind {
+  background: #e0e7f0;
+  color: #7b8da7;
+  border-color: #c8d2e1;
+}
+[data-theme="light"] .row-actions .icon-button {
+  color: #98a7bc;
+}
+[data-theme="light"] .grid-view .row-actions > .more-file-actions {
+  background: #fafafa90;
+}
+[data-theme="light"] .row-actions .delete-button:hover {
+  color: #bc7c77;
+  background: #c9898110;
+}
+[data-theme="light"] .list-view .file-card:nth-child(2n + 1) {
+  background: #eff2f6;
+}
+[data-theme="light"] .list-view .file-card:hover {
+  background: #e8edf4;
+}
+[data-theme="light"] .list-view .card-subtitle,
+[data-theme="light"] .list-view .card-date {
+  color: #91a0b4;
+}
+[data-theme="light"] .browser-results {
+  color: #93a0b4;
+  border-color: #e3e7ee;
+}
+[data-theme="light"] .browser-path {
+  color: #9aa8bc;
+}
+[data-theme="light"] .load-more-files {
+  color: #91a0b5;
+}
+[data-theme="light"] .load-more-files > button {
+  background: #f2f5fa;
+  border-color: #d6dfea;
+  color: #6f86a5;
+}
+[data-theme="light"] .table-empty {
+  color: #a0aec2;
+}
+[data-theme="light"] .table-empty > strong {
+  color: #667e9e;
+}
+[data-theme="light"] .finder-statusbar {
+  background: #f0f1f4;
+  border-color: #d8dce4;
+  color: #92a0b4;
+}
+[data-theme="light"] .finder-statusbar > button {
+  color: #8b9cb1;
+}
+[data-theme="light"] .library-info,
+[data-theme="light"] .library-layout > .library-info {
+  background: #f1f2f5;
+  border-color: #d5dbe4;
+  color: #697a91;
+}
+[data-theme="light"] .info-panel-heading,
+[data-theme="light"] .library-layout > .library-info .info-panel-heading {
+  background: #e9ecf1;
+  border-color: #d5dce6;
+  color: #647791;
+}
+[data-theme="light"] .library-info > section {
+  border-color: #dde2ea;
+}
+[data-theme="light"] .info-eyebrow {
+  color: #97a3b5;
+}
+[data-theme="light"] .info-device > svg {
+  background: #dce5f1;
+  color: #7e99bc;
+}
+[data-theme="light"] .info-device strong {
+  color: #5f7797;
+}
+[data-theme="light"] .info-device > div > span {
+  color: #8b9e8d;
+}
+[data-theme="light"] .library-info dt {
+  color: #9ba7ba;
+}
+[data-theme="light"] .library-info dd {
+  color: #7a8fae;
+}
+[data-theme="light"] .info-free > strong {
+  color: #6b839f;
+}
+[data-theme="light"] .info-free > span {
+  color: #9daebe;
+}
+[data-theme="light"] .info-storage-track {
+  background: #d9e1ec;
+}
+[data-theme="light"] .info-storage-track > i {
+  background: #98b2d1;
+}
+[data-theme="light"] .info-storage-legend {
+  color: #a2aec0;
+}
+[data-theme="light"] .library-info h2 {
+  color: #748bab;
+}
+[data-theme="light"] .info-path {
+  color: #a1b0c5;
+}
+[data-theme="light"] .info-note {
+  color: #9eacc1;
+}
+[data-theme="light"] .info-open {
+  background: #e1e8f2;
+  border-color: #c6d4e5;
+  color: #7893b4;
+}
+[data-theme="light"] .info-empty-transfer {
+  color: #97a8c1;
+}
+[data-theme="light"] .info-active-transfer strong {
+  color: #7895b8;
+}
+[data-theme="light"] .info-active-transfer span {
+  color: #a0b2cd;
+}
+[data-theme="light"] .info-eyebrow > button {
+  color: #92a6c1;
+}
+[data-theme="light"] .library-info-dialog {
+  background: #f4f5f8;
+  border-color: #ccd5e2;
+  color: #687d9e;
+}
+[data-theme="light"] .library-info-dialog .library-info,
+[data-theme="light"] .library-info-dialog .info-panel-heading {
+  background: #f4f5f8;
+}
+[data-theme="light"] .cover-widget-heading {
+  color: #9ba8bb;
+}
+[data-theme="light"] .cover-preview {
+  background: #e7ebf1;
+  border-color: #d3dce8;
+}
+[data-theme="light"] .cover-placeholder {
+  background: #ffffff40;
+  border-color: #ccd5e4;
+  color: #a0afc4;
+}
+[data-theme="light"] .cover-error {
+  color: #b48680;
+}
+[data-theme="light"] .cover-dialog {
+  background: #fafbfc;
+  border-color: #c5cfdf;
+  color: #5a708e;
+}
+[data-theme="light"] .cover-dialog > form > header,
+[data-theme="light"] .cover-dialog footer {
+  border-color: #e0e5ed;
+}
+[data-theme="light"] .cover-dialog header p {
+  color: #97a6bd;
+}
+[data-theme="light"] .cover-tabs {
+  background: #edf1f6;
+  border-color: #dce3ee;
+}
+[data-theme="light"] .cover-tabs > button {
+  color: #97a7c0;
+}
+[data-theme="light"] .cover-tabs > button.active {
+  background: #fff;
+  color: #667f9f;
+  box-shadow: 0 1px 3px #52678a10;
+}
+[data-theme="light"] .cover-upload-area {
+  background: #f3f6fb;
+  border-color: #bdcde1;
+  color: #93aacc;
+}
+[data-theme="light"] .cover-upload-area > strong {
+  color: #849cbd;
+}
+[data-theme="light"] .cover-upload-area > span,
+[data-theme="light"] .cover-explanation {
+  color: #a0b0c8;
+}
+[data-theme="light"] .cover-image-picker > button {
+  background: #f0f4fa;
+  border-color: #d4e0ef;
+  color: #8aa0c0;
+}
+[data-theme="light"] .cover-image-picker > button.selected {
+  background: #dbe8fa;
+  border-color: #9ab8df;
+}
+[data-theme="light"] .text-button {
+  color: #8ea8ce;
+}
+[data-theme="light"] .refresh-gamelist-note {
+  background: #edf3fc;
+  border-color: #cfdef2;
+  color: #8ca3c3;
+}
+[data-theme="light"] .refresh-gamelist-note strong {
+  color: #7693bd;
+}
+[data-theme="light"] .refresh-gamelist-note > svg {
+  color: #8aa5cd;
+}
+[data-theme="light"] .context-menu {
+  background: #fcfcffed;
+  border-color: #c5ccda;
+  box-shadow: 0 12px 40px #26374b20;
+}
+[data-theme="light"] .context-menu button {
+  color: #788cab;
+}
+[data-theme="light"] .context-menu button:hover,
+[data-theme="light"] .context-menu [role="menuitem"]:focus {
+  background: #588dd0;
+  color: #fff;
+}
+[data-theme="light"] .context-menu button.destructive {
+  color: #bb8b84;
+}
+[data-theme="light"] .context-menu hr {
+  background: #e0e6ef;
+}
+[data-theme="light"] .dialog {
+  background: #fafbfc;
+  border-color: #c8d2e2;
+  color: #627c9f;
+}
+[data-theme="light"] .dialog-icon {
+  background: #e4edf9;
+  color: #8aa5cc;
+}
+[data-theme="light"] .dialog-description {
+  color: #94a6c0;
+}
+[data-theme="light"] .field {
+  color: #8da2c0;
+}
+[data-theme="light"] .field input {
+  background: #fff;
+  border-color: #d0dced;
+  color: #6d87ad;
+}
+[data-theme="light"] .field input::placeholder {
+  color: #b3bfd2;
+}
+[data-theme="light"] .connection-modal-card {
+  background: #f8fafe;
+  border-color: #c9d6e9;
+}
+[data-theme="light"] .connection-form > p {
+  color: #96aac8;
+}
+[data-theme="light"] .eyebrow {
+  color: #a0b1ca;
+}
+[data-theme="light"] .finder-setup {
+  background: #f5f8fd;
+  border-color: #cfdbec;
+}
+[data-theme="light"] .form-note {
+  color: #9caf9e !important;
+}
+[data-theme="light"] .inline-error {
+  background: #fbf1ef;
+  border-color: #edd4cf;
+  color: #ba8c85;
+}
+[data-theme="light"] .error-banner {
+  background: #fbf2f0;
+  border-color: #e6cec9;
+  color: #ba8b82;
+}
+[data-theme="light"] .transfer-panel {
+  background: #fafbfe;
+  border-color: #bfcde0;
+  box-shadow: 0 14px 60px #26374b20;
+}
+[data-theme="light"] .transfer-header {
+  background: #edf2fa;
+  color: #7e99be;
+}
+[data-theme="light"] .transfer-header b {
+  background: #dae4f3;
+  color: #8aa4c9;
+}
+[data-theme="light"] .transfer-job {
+  border-color: #e1e8f4;
+}
+[data-theme="light"] .job-icon {
+  background: #e5edf9;
+  color: #98b1d4;
+}
+[data-theme="light"] .job-icon.done {
+  background: #e8f0e4;
+  color: #9db28f;
+}
+[data-theme="light"] .job-icon.error {
+  background: #f5e4e1;
+  color: #c4a19b;
+}
+[data-theme="light"] .job-info > strong {
+  color: #829abf;
+}
+[data-theme="light"] .job-info > span {
+  color: #a1b2cd;
+}
+[data-theme="light"] .job-progress {
+  background: #e1e8f3;
+}
+[data-theme="light"] .job-progress > i {
+  background: #9ab6df;
+}
+[data-theme="light"] .clear-transfers {
+  background: #f2f6fc;
+  border-color: #dbe4f2;
+  color: #96aed1;
+}
+[data-theme="light"] .toast {
+  background: #edf3fd;
+  border-color: #bbd0ed;
+  color: #7595bf;
+  box-shadow: 0 8px 30px #526b8c15;
+}
+[data-theme="light"] .login-page {
+  background:
+    radial-gradient(ellipse at 15% 50%, #94b1dc08, transparent 60%), #f5f7fb;
+}
+[data-theme="light"] .login-intro h1 {
+  color: #5d7699;
+}
+[data-theme="light"] .login-intro h1 > span {
+  color: #8da8cf;
+}
+[data-theme="light"] .login-intro > p,
+[data-theme="light"] .login-features {
+  color: #9aafce;
+}
+[data-theme="light"] .login-card {
+  background: #fff;
+  border-color: #d4e0f0;
+}
+[data-theme="light"] .login-card h2 {
+  color: #6c87ab;
+}
+[data-theme="light"] .login-card > p {
+  color: #a2b4cf;
+}
+[data-theme="light"] .login-card-icon {
+  background: #edf3fc;
+  border-color: #d9e5f6;
+  color: #9ab4d9;
+}
+[data-theme="light"] .login-card-footer {
+  border-color: #e1e9f5;
+  color: #a0b4d3;
+}
+[data-theme="light"] .login-footer {
+  border-color: #dfe8f5;
+  color: #a5b8d4;
+}
+[data-theme="light"] .version {
+  color: #9db3d2;
+}
+[data-theme="light"] .initial-loading {
+  color: #90a8cd;
+}
+/* Keep normal text comfortably readable against light surfaces. */
+[data-theme="light"] .card-subtitle,
+[data-theme="light"] .finder-storage,
+[data-theme="light"] .finder-all,
+[data-theme="light"] .finder-settings,
+[data-theme="light"] .browser-path,
+[data-theme="light"] .browser-results,
+[data-theme="light"] .finder-statusbar,
+[data-theme="light"] .finder-statusbar > button,
+[data-theme="light"] .info-note,
+[data-theme="light"] .info-path,
+[data-theme="light"] .info-storage-legend,
+[data-theme="light"] .library-info dt,
+[data-theme="light"] .info-eyebrow,
+[data-theme="light"] .info-empty-transfer,
+[data-theme="light"] .cover-explanation,
+[data-theme="light"] .cover-widget-heading,
+[data-theme="light"] .cover-dialog header p,
+[data-theme="light"] .job-info > span,
+[data-theme="light"] .refresh-gamelist-note p,
+[data-theme="light"] .login-card > p,
+[data-theme="light"] .login-intro > p,
+[data-theme="light"] .login-card-footer {
+  color: #66768c;
+}
+[data-theme="light"] .library-info dd,
+[data-theme="light"] .library-info h2,
+[data-theme="light"] .info-device strong,
+[data-theme="light"] .info-free > strong,
+[data-theme="light"] .cover-dialog,
+[data-theme="light"] .cover-upload-area > strong,
+[data-theme="light"] .cover-image-picker > button,
+[data-theme="light"] .refresh-gamelist-note strong,
+[data-theme="light"] .dialog,
+[data-theme="light"] .dialog-description,
+[data-theme="light"] .field,
+[data-theme="light"] .field input,
+[data-theme="light"] .context-menu button,
+[data-theme="light"] .login-card h2 {
+  color: #4e6482;
+}
+@media (max-width: 760px) {
+  [data-theme="light"] .sidebar {
+    background: #edf0f5;
+    box-shadow: 20px 0 50px #26374b20;
+  }
+  [data-theme="light"] .library-info-dialog .library-info,
+  [data-theme="light"] .library-info-dialog .info-panel-heading {
+    background: #f5f7fb;
+  }
+  [data-theme="light"] .cover-dialog {
+    background: #fafbfe;
+  }
+}
+/* Secondary text meets normal-text contrast on the light panel backgrounds. */
+[data-theme="light"] .finder-sidebar-label,
+[data-theme="light"] .finder-count,
+[data-theme="light"] .finder-title > span,
+[data-theme="light"] .finder-all,
+[data-theme="light"] .finder-settings,
+[data-theme="light"] .finder-storage,
+[data-theme="light"] .card-subtitle,
+[data-theme="light"] .breadcrumbs button,
+[data-theme="light"] .filter-tabs button,
+[data-theme="light"] .sort-fields > button,
+[data-theme="light"] .browser-results,
+[data-theme="light"] .browser-path,
+[data-theme="light"] .finder-statusbar,
+[data-theme="light"] .finder-statusbar > button,
+[data-theme="light"] .info-eyebrow,
+[data-theme="light"] .info-eyebrow > button,
+[data-theme="light"] .info-path,
+[data-theme="light"] .info-note,
+[data-theme="light"] .info-storage-legend,
+[data-theme="light"] .info-free > span,
+[data-theme="light"] .library-info dt,
+[data-theme="light"] .info-empty-transfer,
+[data-theme="light"] .cover-explanation,
+[data-theme="light"] .cover-widget-heading,
+[data-theme="light"] .cover-dialog header p,
+[data-theme="light"] .cover-placeholder,
+[data-theme="light"] .cover-upload-area > span,
+[data-theme="light"] .cover-tabs > button,
+[data-theme="light"] .cover-image-picker span,
+[data-theme="light"] .refresh-gamelist-note p,
+[data-theme="light"] .refresh-gamelist-note strong,
+[data-theme="light"] .job-info > span,
+[data-theme="light"] .connection-form > p,
+[data-theme="light"] .login-intro > p,
+[data-theme="light"] .login-card > p,
+[data-theme="light"] .login-card-footer,
+[data-theme="light"] .login-features,
+[data-theme="light"] .version,
+[data-theme="light"] .login-footer {
+  color: #5b6c84;
+}
+[data-theme="light"] .library-info dd,
+[data-theme="light"] .library-info h2,
+[data-theme="light"] .info-device strong,
+[data-theme="light"] .cover-dialog,
+[data-theme="light"] .cover-image-picker > button,
+[data-theme="light"] .cover-upload-area > strong,
+[data-theme="light"] .context-menu button,
+[data-theme="light"] .dialog-description,
+[data-theme="light"] .field,
+[data-theme="light"] .field input,
+[data-theme="light"] .text-button,
+[data-theme="light"] .info-open,
+[data-theme="light"] .transfer-header,
+[data-theme="light"] .job-info > strong {
+  color: #435b7a;
+}
+[data-theme="light"] .file-search input::placeholder,
+[data-theme="light"] .field input::placeholder {
+  color: #65758b;
+}
+[data-theme="light"] .row-actions .icon-button {
+  color: #7b899d;
+}
+[data-theme="light"] .info-device > div > span {
+  color: #5d755d;
+}
+[data-theme="light"] .context-menu button:hover,
+[data-theme="light"] .context-menu [role="menuitem"]:focus {
+  color: white;
+}
+[data-theme="light"] .theme-switcher {
+  background: #e5eaf2;
+  border-color: #c4cedd;
+}
+[data-theme="light"] .theme-switcher > button {
+  color: #687a94;
+}
+[data-theme="light"] .theme-switcher > button[aria-pressed="true"] {
+  background: #fff;
+  color: #3e5e89;
+  box-shadow: 0 1px 3px #35517518;
+}
+[data-theme="light"] .theme-switcher > button:hover {
+  background: #f9fbff;
+  color: #3e5e89;
+}
+[data-theme="light"] .finder-theme-setting > span {
+  color: #6b7b93;
+}
+[data-theme="light"] .file-preview-dialog {
+  background: #fafbfd;
+  color: #4c6382;
+  border-color: #b9c7dc;
+  box-shadow: 0 22px 90px #253c5b3b;
+}
+[data-theme="light"] .file-preview-dialog > header {
+  background: #eef2f8;
+  border-color: #d1dceb;
+}
+[data-theme="light"] .file-preview-dialog header span {
+  color: #72849f;
+}
+[data-theme="light"] .file-preview-content {
+  background: #f6f8fc;
+}
+[data-theme="light"] .file-preview-content.video {
+  background: #e1e6ef;
+}
+[data-theme="light"] .file-preview-content pre {
+  color: #3e567a;
+}
+[data-theme="light"] .preview-format-note {
+  background: #e8eef8;
+  border-color: #d1deef;
+  color: #607796;
+}
+[data-theme="light"] .preview-message {
+  color: #667e9e;
+}
+[data-theme="light"] .preview-message > strong {
+  color: #435f83;
+}
+[data-theme="light"] .audio-preview {
+  color: #617d9f;
+}
+[data-theme="light"] .file-preview-dialog > footer {
+  background: #f0f4fa;
+  border-color: #d4dfef;
+  color: #6e85a5;
+}
+[data-theme="light"] .connection-page {
+  background: #f5f6f8;
+}
+[data-theme="light"] .connection-page-card {
+  background: #fff;
+  box-shadow: 0 12px 40px #20304008;
+}
+[data-theme="light"] .connection-device {
+  background: #e5edf7;
+  color: #416b9e;
+  border-color: #c7d8ed;
+}
+[data-theme="light"] .sidebar-system-filter select {
+  background: #fff;
+  color: #465368;
+  border-color: #cbd3df;
+}
+[data-theme="light"] .favorite-system {
+  color: #8090a3;
+}
+[data-theme="light"] .favorite-system.is-favorite {
+  color: #9b721d;
+}
+[data-theme="light"] .favorite-system:hover {
+  background: #dfe7f1;
+  color: #365e8e;
+}

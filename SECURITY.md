@@ -1,9 +1,9 @@
-# Segurança
+# Security
 
-ROM Dock destina-se a uma instância pessoal numa rede local de confiança. A interface utiliza HTTP e não deve ser exposta diretamente à Internet. As sessões autenticadas de uma instância partilham a mesma ligação à consola.
+ROM Dock is intended for a personal instance on a trusted local network. The browser interface uses HTTP and must not be exposed directly to the Internet. Authenticated sessions on an instance share the same console connection.
 
-Nunca incluir palavras-passe, códigos de acesso, chaves privadas ou conteúdo de `.runtime/` em Issues, propostas de alteração ou capturas de ecrã.
+Never include passwords, access codes, private keys, or `.runtime/` contents in issues, pull requests, or screenshots.
 
-Para comunicar uma vulnerabilidade, utilizar o separador **Security** do repositório e a opção de reporte privado, quando disponível. Caso não esteja disponível, contactar o autor através dos meios públicos indicados no seu perfil, sem divulgar detalhes de exploração numa Issue pública.
+To report a vulnerability, use the repository's **Security** tab and private vulnerability reporting when available. If unavailable, contact the author through the public contact details on their profile rather than disclosing exploitation details in a public issue.
 
-O projeto está em desenvolvimento ativo e não define atualmente um prazo de correção ou uma política de suporte a versões anteriores.
+The project is under active development and currently provides no fixed remediation timeline or support policy for older versions.

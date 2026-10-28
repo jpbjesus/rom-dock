@@ -1,27 +1,28 @@
-# Contribuir para ROM Dock
+# Contributing to ROM Dock
 
-Antes de iniciar uma alteração significativa, apresentar uma Issue com o problema e o comportamento pretendido. O suporte a outras consolas e protocolos encontra-se no trabalho futuro; novas integrações devem explicitar as capacidades e limitações do respetivo protocolo.
+Before starting a substantial change, open an issue describing the problem and intended behavior. Support for other consoles and protocols is on the roadmap; new integrations should state the capabilities and limitations of their protocol.
 
-## Preparação
+## Setup
 
-Seguir a instalação e as instruções de desenvolvimento no README. Utilizar dados de teste próprios, sem incluir ROMs, BIOS, credenciais ou conteúdos comerciais no repositório.
+Follow the installation and development instructions in the README. Use your own test data; do not include ROMs, BIOS files, credentials, or commercial content in the repository.
 
-## Verificações
+## Checks
 
 ```bash
 .venv/bin/python -m pytest -q
 npm --prefix frontend run build
-# Com o servidor ativo na porta 8765 e Chromium instalado:
+# With the server running on port 8765 and Chromium installed:
 cd frontend && npm test
 ```
 
-A descrição da proposta deve identificar o problema, o comportamento resultante, as verificações realizadas e eventuais limitações. Alterações visuais devem incluir capturas em computador e telemóvel, nos temas afetados, com dados de demonstração.
+Pull request descriptions should identify the problem, resulting behavior, validation performed, and any limitations. Visual changes should include desktop and mobile screenshots in the affected themes, using demonstration data.
 
-## Convenções
+## Conventions
 
-- Manter a linguagem da interface e da documentação formal e objetiva.
-- Não guardar credenciais ou dados da máquina em ficheiros versionados.
-- Validar caminhos e a geração da ligação nas operações remotas.
-- Preservar os originais perante falhas de transferência ou publicação.
-- Respeitar a preferência de movimento reduzido e a navegação por teclado.
-- Distinguir funcionalidades disponíveis de propostas de trabalho futuro.
+- Write public documentation, issues, and pull requests in English, using formal, objective language.
+- The interface is currently in Portuguese; keep its labels consistent until localization is implemented.
+- Do not commit credentials or machine-specific data.
+- Validate paths and the connection generation for remote operations.
+- Preserve original files if transfers or publication fail.
+- Respect reduced motion preferences and keyboard navigation.
+- Distinguish available functionality from planned improvements.

@@ -1,103 +1,103 @@
 <div align="center">
   <img src="frontend/public/favicon.svg" width="64" height="64" alt="ROM Dock" />
   <h1>ROM Dock</h1>
-  <p>Gestão de ficheiros e ROMs para consolas portáteis, a partir do navegador.</p>
+  <p>Manage files and ROMs on handheld consoles from a web browser.</p>
   <p>React · TypeScript · FastAPI · SFTP</p>
 </div>
 
-ROM Dock é uma aplicação local para consultar, organizar e transferir ficheiros entre um computador e uma consola com ROCKNIX. O servidor é executado no computador; a interface pode ser utilizada no próprio computador ou num telemóvel ligado à mesma rede.
+ROM Dock is a local application for browsing, organizing, and transferring files between a computer and a console running ROCKNIX. The server runs on the computer; the interface is accessible from that computer or a phone on the same network.
 
-A versão atual utiliza **SFTP sobre SSH** e foi validada numa **Anbernic RG40XX V com ROCKNIX**. O suporte a consolas genéricas, outros sistemas e ligações SMB/Samba faz parte do [trabalho futuro](#trabalho-futuro). O projeto encontra-se em desenvolvimento ativo.
+The current version uses **SFTP over SSH** and has been validated on an **Anbernic RG40XX V running ROCKNIX**. Support for other consoles, operating systems, and SMB/Samba connections is part of the [roadmap](#roadmap). The project is under active development. **The application interface is currently in Portuguese; this documentation is in English.**
 
-![Explorador em modo escuro](docs/screenshots/desktop-dark.png)
+![File explorer in dark mode](docs/screenshots/desktop-dark.png)
 
-## Índice
+## Contents
 
-- [Funcionalidades](#funcionalidades)
-- [Capturas de ecrã](#capturas-de-ecrã)
-- [Compatibilidade](#compatibilidade)
-- [Instalação](#instalação)
-- [Ligação à consola](#ligação-à-consola)
-- [Utilização](#utilização)
-- [Capas e imagens](#capas-e-imagens)
-- [Transferências e integridade dos ficheiros](#transferências-e-integridade-dos-ficheiros)
-- [Configuração](#configuração)
-- [Segurança e privacidade](#segurança-e-privacidade)
-- [Desenvolvimento e testes](#desenvolvimento-e-testes)
-- [Arquitetura](#arquitetura)
-- [Resolução de problemas](#resolução-de-problemas)
-- [Trabalho futuro](#trabalho-futuro)
-- [Contribuições](#contribuições)
-- [Licenciamento e atribuições](#licenciamento-e-atribuições)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Compatibility](#compatibility)
+- [Installation](#installation)
+- [Connecting to a console](#connecting-to-a-console)
+- [Usage](#usage)
+- [Covers and artwork](#covers-and-artwork)
+- [Transfers and file integrity](#transfers-and-file-integrity)
+- [Configuration](#configuration)
+- [Security and privacy](#security-and-privacy)
+- [Development and testing](#development-and-testing)
+- [Architecture](#architecture)
+- [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Licensing and attribution](#licensing-and-attribution)
 
-## Funcionalidades
+## Features
 
-| Área | Disponível |
+| Area | Available functionality |
 | --- | --- |
-| Explorador | Grelha e lista, pesquisa na pasta atual, filtros, ordenação direta e navegação contínua sem paginação |
-| Organização | Criação de pastas, renomeação, eliminação de ficheiros e de pastas vazias |
-| Transferências | Envio múltiplo, descarga, progresso, cancelamento e confirmação antes de substituir |
-| Sistemas | Ícones locais, favoritos persistentes e filtros para sistemas com ROMs ou sem ROMs |
-| Pré-visualização | Imagens, vídeo, áudio, PDF, texto e amostra hexadecimal de outros ficheiros |
-| Capas | Leitura de associações existentes e gestão manual de imagens |
-| Interface | Temas claro e escuro, tamanho da grelha ajustável e painéis laterais independentes |
-| Navegação | Histórico, atalhos de teclado, menu de contexto e gestos nas margens em telemóvel |
-| Acesso | Código da aplicação, sessão no navegador e confirmação da identidade SSH |
-| Acessibilidade | Controlos identificados, navegação por teclado e respeito pela preferência de movimento reduzido |
+| File explorer | Grid and list views, search within the current folder, filters, direct sorting controls, and continuous browsing without pagination |
+| Organization | Folder creation, renaming, file deletion, and deletion of empty folders |
+| Transfers | Multiple uploads, downloads, progress, cancellation, and confirmation before overwriting |
+| Systems | Local system icons, persistent favorites, and filters for systems with or without ROMs |
+| Preview | Images, video, audio, PDF, text, and a hexadecimal sample for other files |
+| Covers | Reading existing artwork associations and managing images manually |
+| Interface | Light and dark themes, adjustable grid size, and independently collapsible side panels |
+| Navigation | History, keyboard shortcuts, context menus, and edge gestures on mobile |
+| Access | Application access code, browser sessions, and SSH host identity verification |
+| Accessibility | Labeled controls, keyboard navigation, and support for reduced motion preferences |
 
-As preferências de apresentação, os favoritos e o estado dos painéis são guardados no navegador. Não existe importação automática, catálogo externo, identificação automática de jogos ou scraping.
+Display preferences, favorites, and panel states are stored in the browser. Automatic import, external catalogs, automatic game identification, and scraping are not available.
 
-## Capturas de ecrã
+## Screenshots
 
-As capturas foram produzidas pela aplicação com **dados e imagens de demonstração criados para este projeto**. Não incluem ROMs, credenciais, dados pessoais ou capas comerciais. O gerador encontra-se em [`frontend/scripts/capture-screenshots.mjs`](frontend/scripts/capture-screenshots.mjs).
+These screenshots were generated from the application using **synthetic data and artwork created for this project**. They contain no ROMs, credentials, personal data, or commercial cover art. They show the current Portuguese interface. The generator is available in [`frontend/scripts/capture-screenshots.mjs`](frontend/scripts/capture-screenshots.mjs).
 
-### Capas e informação em modo escuro
+### Covers and information in dark mode
 
-![Grelha com capas de demonstração](docs/screenshots/covers-dark.png)
+![Grid with demonstration artwork](docs/screenshots/covers-dark.png)
 
-### Vista em lista e modo claro
+### List view in light mode
 
-![Lista com ícones compactos](docs/screenshots/list-light.png)
+![List view with compact icons](docs/screenshots/list-light.png)
 
-### Painéis laterais encolhidos
+### Collapsed side panels
 
-![Explorador com ambos os painéis encolhidos](docs/screenshots/panels-collapsed.png)
+![File explorer with both side panels collapsed](docs/screenshots/panels-collapsed.png)
 
-### Telemóvel
+### Mobile
 
 <p>
-  <img src="docs/screenshots/mobile-light.png" width="320" alt="Explorador em telemóvel, em modo claro" />
-  <img src="docs/screenshots/connection-mobile.png" width="320" alt="Configuração da ligação em telemóvel" />
+  <img src="docs/screenshots/mobile-light.png" width="320" alt="Mobile file explorer in light mode" />
+  <img src="docs/screenshots/connection-mobile.png" width="320" alt="Mobile connection setup" />
 </p>
 
-## Compatibilidade
+## Compatibility
 
-| Componente | Situação atual |
+| Component | Current status |
 | --- | --- |
-| Consola validada | Anbernic RG40XX V |
-| Sistema da consola | ROCKNIX |
-| Protocolo | SFTP sobre SSH, com autenticação por palavra-passe |
-| Pasta de ficheiros | `/storage/roms`, atualmente fixa |
-| Servidor | Computador com Python e Node.js; arranque automatizado para ambientes com Bash |
-| Cliente | Navegador moderno em computador ou telemóvel |
-| Outras consolas e distribuições | Não validadas; podem exigir alterações |
-| SMB/Samba, WebDAV, FTP e armazenamento local | Não implementados |
+| Validated console | Anbernic RG40XX V |
+| Console operating system | ROCKNIX |
+| Protocol | SFTP over SSH with password authentication |
+| File root | `/storage/roms`, currently fixed |
+| Server | Computer with Python and Node.js; automated startup requires Bash |
+| Client | Modern desktop or mobile browser |
+| Other consoles and distributions | Not validated; changes may be required |
+| SMB/Samba, WebDAV, FTP, and local storage | Not implemented |
 
-O computador deve permanecer ligado durante a utilização. O telemóvel comunica com o servidor no computador, que efetua as operações SFTP na consola. A aplicação não é instalada na consola.
+The computer must remain running while the application is in use. A phone communicates with the server on the computer, which performs SFTP operations on the console. The application is not installed on the console.
 
-## Instalação
+## Installation
 
-### Requisitos
+### Requirements
 
-- Python **3.11 ou superior**, com suporte para ambientes virtuais.
-- Node.js **22.12 ou superior**, com npm.
-- Bash para utilizar `start.sh`; em Windows, utilizar WSL ou adaptar o arranque manual.
-- Consola com ROCKNIX, rede e serviço SSH ativo.
-- Acesso à Internet para a instalação inicial das dependências.
+- Python **3.11 or later**, with virtual environment support.
+- Node.js **22.12 or later**, with npm.
+- Bash to use `start.sh`; on Windows, use WSL or adapt the manual startup commands.
+- A console running ROCKNIX with networking and SSH enabled.
+- Internet access for the initial dependency installation.
 
-O desenvolvimento e a validação foram efetuados em Linux, com Python 3.14 e Node.js 22. A compatibilidade com outras versões e sistemas anfitriões deverá ser confirmada no respetivo ambiente.
+Development and validation were performed on Linux with Python 3.14 and Node.js 22. Compatibility with other versions and host operating systems should be verified in the target environment.
 
-### Arranque automático
+### Automated startup
 
 ```bash
 git clone https://github.com/jpbjesus/rom-dock.git
@@ -105,13 +105,13 @@ cd rom-dock
 ./start.sh
 ```
 
-O script cria `.venv`, instala as dependências Python e JavaScript, compila a interface e inicia o servidor. O terminal apresenta o endereço local, o endereço de rede e o código de acesso.
+The script creates `.venv`, installs Python and JavaScript dependencies, builds the interface, and starts the server. The terminal displays the local URL, network URL, and access code.
 
-No computador, abrir **http://localhost:8765**. No telemóvel, abrir `http://<IP-DO-COMPUTADOR>:8765` e introduzir o código apresentado no terminal. O terminal deve permanecer aberto; `Ctrl+C` encerra o servidor.
+On the computer, open **http://localhost:8765**. On a phone, open `http://<COMPUTER-IP>:8765` and enter the code displayed in the terminal. Keep the terminal open; `Ctrl+C` stops the server.
 
-O funcionamento após a instalação é local. As fontes, os ícones e a interface são servidos pelo próprio computador.
+Once installed, the application runs locally. Fonts, icons, and interface assets are served by the computer itself.
 
-### Instalação manual
+### Manual installation
 
 ```bash
 python3 -m venv .venv
@@ -122,236 +122,238 @@ npm --prefix frontend run build
 python -m backend.app
 ```
 
-## Ligação à consola
+## Connecting to a console
 
-1. Ligar o computador e a consola à mesma rede local.
-2. Ativar o serviço SSH nas definições do ROCKNIX.
-3. Consultar o endereço IP da consola nas informações de rede.
-4. Preencher o endereço, a porta SSH, o utilizador e a palavra-passe na aplicação.
-5. Na primeira ligação, verificar e confirmar a impressão digital da chave SSH.
+1. Connect the computer and console to the same local network.
+2. Enable the SSH service in the ROCKNIX settings.
+3. Find the console's IP address in its network information.
+4. Enter the address, SSH port, username, and password in the application.
+5. On the first connection, verify and accept the SSH host key fingerprint.
 
-A porta habitual é `22`. Confirmar o utilizador e a palavra-passe nas definições da consola; a aplicação não fornece nem guarda uma palavra-passe predefinida. No ROCKNIX, a palavra-passe de administração pode ser consultada em **System Settings → Security → Root Password**, consoante a versão e o idioma.
+The usual SSH port is `22`. Check the username and password in the console settings; the application neither supplies nor stores a default password. Depending on the ROCKNIX version and language, the administrator password can be found under **System Settings → Security → Root Password**.
 
-As identidades aceites ficam em `.runtime/trusted-hosts.json`. Se a chave mudar, a aplicação exige nova confirmação. As credenciais SSH permanecem apenas na memória do servidor e são descartadas quando este é reiniciado.
+Accepted host identities are stored in `.runtime/trusted-hosts.json`. A changed key requires confirmation again. SSH credentials remain only in server memory and are discarded when the server restarts.
 
-## Utilização
+## Usage
 
-### Explorar e organizar
+The interface currently uses Portuguese labels. English descriptions and their corresponding labels are provided below.
 
-- Abrir uma pasta para consultar o respetivo conteúdo.
-- Alternar entre grelha e lista e ajustar o tamanho da grelha.
-- Utilizar **Nome**, **Tamanho** ou **Modificado** para ordenar; repetir o clique inverte a direção.
-- Pesquisar na pasta aberta e filtrar ficheiros ou pastas.
-- Selecionar um item para consultar a informação lateral; em telemóvel, utilizar **Informação**.
-- Utilizar **Navegação** e **Informação**, na barra superior, para encolher ou expandir os painéis. O painel direito também dispõe de um controlo próprio.
-- Utilizar o menu de contexto para as operações disponíveis.
+### Browse and organize
 
-### Favoritos e filtros de sistemas
+- Open a folder to view its contents.
+- Switch between grid and list views and adjust the grid size.
+- Sort by **Name** (`Nome`), **Size** (`Tamanho`), or **Modified** (`Modificado`); select the same field again to reverse the direction.
+- Search within the open folder and filter files or folders.
+- Select an item to inspect it in the information panel; on mobile, use **Information** (`Informação`).
+- Use **Navigation** (`Navegação`) and **Information** (`Informação`) in the top bar to collapse or expand the panels. The right panel also has its own control.
+- Use the context menu to access available file operations.
 
-A estrela junto de cada sistema adiciona ou remove esse sistema dos favoritos. Os favoritos aparecem numa secção própria da barra lateral.
+### Favorites and system filters
 
-O seletor **Filtrar sistemas** disponibiliza **Todos os sistemas**, **Com ROMs** e **Sem ROMs**. O filtro aplica-se à barra lateral e às pastas dos sistemas na raiz do explorador; não altera o conteúdo da consola.
+The star next to a system adds it to or removes it from favorites. Favorite systems appear in a dedicated sidebar section.
 
-A deteção considera extensões de ROM reconhecidas, incluindo subpastas, e ignora diretórios de imagens, vídeos e outros recursos. Não valida o conteúdo de cada ROM. A pesquisa tem um limite de 200 diretórios por sistema e 500 por pedido. Sistemas cuja verificação fique incompleta são considerados indeterminados e aparecem apenas em **Todos os sistemas**. Alternar entre os dois filtros utiliza o mesmo resultado da verificação.
+The **Filter systems** (`Filtrar sistemas`) selector offers **All systems** (`Todos os sistemas`), **With ROMs** (`Com ROMs`), and **Without ROMs** (`Sem ROMs`). The filter applies to the sidebar and system folders at the explorer root; it does not modify console contents.
 
-### Pré-visualizar e navegar
+Detection checks recognized ROM extensions, including subfolders, and excludes artwork, video, and other asset directories. It does not validate the contents of ROM files. Scans are limited to 200 directories per system and 500 per request. Systems with incomplete scans are treated as unknown and appear only under **All systems**. Switching between the two ROM filters reuses the same scan result.
 
-| Ação | Controlo |
+### Preview and navigation
+
+| Action | Control |
 | --- | --- |
-| Pré-visualizar um ficheiro | Duplo clique, botão de pré-visualização ou seleção seguida de `Espaço` |
-| Fechar pré-visualização ou diálogo | `Esc` |
-| Retroceder no PC | `Alt + ←` ou botão Retroceder |
-| Avançar no PC | `Alt + →` ou botão Avançar |
-| Retroceder em telemóvel | Deslizar da margem esquerda para o interior |
-| Avançar em telemóvel | Deslizar da margem direita para o interior |
+| Preview a file | Double-click, use the preview button, or select a file and press `Space` |
+| Close a preview or dialog | `Esc` |
+| Go back on desktop | `Alt + ←` or the Back button |
+| Go forward on desktop | `Alt + →` or the Forward button |
+| Go back on mobile | Swipe inward from the left edge |
+| Go forward on mobile | Swipe inward from the right edge |
 
-Vídeo e áudio dependem dos formatos e codecs suportados pelo navegador. A apresentação de PDF depende do visualizador disponível no dispositivo. Os ficheiros de texto têm uma pré-visualização limitada; ficheiros binários apresentam uma amostra hexadecimal. A descarga do ficheiro permanece disponível.
+Video and audio playback depend on browser format and codec support. PDF display depends on the viewer available on the device. Text previews are bounded; binary files show a hexadecimal sample. The original file remains available for download.
 
-### Depois de enviar jogos
+### After uploading games
 
-Na consola, atualizar a lista em:
+On the console, refresh the game list through:
 
 **START → Game Settings → Update Gamelists**
 
-Os nomes dos menus podem variar com o idioma ou a versão do ROCKNIX. A aplicação apresenta esta instrução nas transferências concluídas e no painel lateral. Não atualiza automaticamente a lista de jogos da consola.
+Menu labels may vary by language and ROCKNIX version. The application displays this instruction after completed uploads and in the information panel. It does not refresh the console's game list automatically.
 
-## Capas e imagens
+## Covers and artwork
 
-O explorador lê as associações de imagem existentes em `gamelist.xml`. Na ausência de uma referência, pode utilizar uma imagem com o mesmo nome base na pasta `images` do sistema.
+The explorer reads existing image associations from `gamelist.xml`. If no reference is present, it may use an image with the same base filename in the system's `images` folder.
 
-A secção **Capa**, no painel de informação de um ficheiro elegível, permite:
+The **Cover** (`Capa`) section in the information panel for an eligible file supports:
 
-- Adicionar ou substituir uma imagem PNG, JPEG ou WebP, até **8 MB e 16 megapíxeis**.
-- Associar uma imagem já existente na pasta `images` do sistema.
-- Remover a associação, preservando os ficheiros de imagem.
+- Uploading or replacing a PNG, JPEG, or WebP image, up to **8 MB and 16 megapixels**.
+- Associating an image already present in the system's `images` folder.
+- Removing an association while preserving the image files.
 
-Antes de substituir um `gamelist.xml` existente, é criada uma cópia dos bytes originais em `<sistema>/.romdock-backups/`. A revisão do ficheiro é verificada antes da alteração. As imagens anteriores são preservadas e a publicação incerta por falha de rede não provoca a eliminação da nova imagem.
+Before replacing an existing `gamelist.xml`, the application backs up its original bytes in `<system>/.romdock-backups/`. The file revision is checked before the change. Previous images are preserved; an uncertain publication result caused by a network failure does not trigger deletion of the new image.
 
-As imagens enviadas são reprocessadas e reduzidas a uma dimensão máxima de 1600 píxeis. As alterações podem exigir uma atualização da lista de jogos no ROCKNIX.
+Uploaded images are reprocessed and resized to a maximum dimension of 1600 pixels. Changes may require refreshing the game list in ROCKNIX.
 
-## Transferências e integridade dos ficheiros
+## Transfers and file integrity
 
-Os envios utilizam ficheiros temporários e só publicam o ficheiro final após a transferência. A substituição depende de renomeação atómica no servidor SFTP; quando esta operação não está disponível, a substituição é recusada para preservar o original.
+Uploads use temporary files and publish the final file only after the transfer completes. Overwriting requires atomic rename support from the SFTP server. If that operation is unavailable, overwriting is rejected to preserve the original.
 
-Cada operação fica associada à ligação em que foi criada. Uma reconexão não redireciona uma transferência para outra consola.
+Each operation is tied to the connection on which it was created. Reconnecting does not redirect an existing transfer to another console.
 
-Limitações atuais:
+Current limitations:
 
-- Não existe retoma automática de envios interrompidos.
-- A fila pertence ao navegador; atualizar ou fechar a página interrompe o respetivo fluxo.
-- Uma falha de rede ou encerramento abrupto pode deixar ficheiros `.romdock-*.part` na consola, ocultos na listagem.
-- Apenas pastas vazias podem ser eliminadas.
-- As operações ficam limitadas à raiz configurada no código, `/storage/roms`.
-- Ligações simbólicas não podem ser abertas nem usadas para contornar a raiz.
+- Interrupted uploads cannot resume automatically.
+- The queue belongs to the browser; refreshing or closing the page interrupts that flow.
+- A network failure or abrupt shutdown may leave `.romdock-*.part` files on the console, hidden from the listing.
+- Only empty folders can be deleted.
+- Operations are restricted to the root currently defined in code, `/storage/roms`.
+- Symbolic links cannot be opened or used to escape the configured root.
 
-## Configuração
+## Configuration
 
-| Variável | Valor predefinido | Finalidade |
+| Variable | Default | Purpose |
 | --- | --- | --- |
-| `ROMDOCK_PORT` | `8765` | Porta HTTP do servidor |
-| `ROMDOCK_ACCESS_CODE` | Gerado em cada arranque | Código de acesso opcional definido pelo operador |
-| `ROMDOCK_CONSOLE_HOST` | Pedido interativamente | Endereço utilizado pelos testes de integração reais |
-| `ROMDOCK_SCREENSHOT_URL` | `http://127.0.0.1:8765` | Endereço do servidor para gerar capturas de demonstração |
+| `ROMDOCK_PORT` | `8765` | HTTP server port |
+| `ROMDOCK_ACCESS_CODE` | Generated at each startup | Optional operator-defined access code |
+| `ROMDOCK_CONSOLE_HOST` | Requested interactively | Console address used by live integration tests |
+| `ROMDOCK_SCREENSHOT_URL` | `http://127.0.0.1:8765` | Server URL used to generate demonstration screenshots |
 
-Exemplo de arranque noutra porta:
+Start the server on another port:
 
 ```bash
 ROMDOCK_PORT=8766 .venv/bin/python -m backend.app
 ```
 
-Não colocar códigos de acesso, palavras-passe, chaves privadas ou ficheiros de execução no repositório. O código gerado no arranque evita a necessidade de definir um segredo persistente.
+Do not commit access codes, passwords, private keys, or runtime files. The generated startup code avoids the need to define a persistent secret.
 
-## Segurança e privacidade
+## Security and privacy
 
-A aplicação destina-se a uma **rede local de confiança**. O servidor escuta nas interfaces de rede do computador. A interface utiliza HTTP; a ligação entre o computador e a consola utiliza SSH. Não publicar diretamente a porta na Internet.
+The application is intended for a **trusted local network**. The server listens on the computer's network interfaces. Browser access uses HTTP; the connection between the computer and console uses SSH. Do not expose the application port directly to the Internet.
 
-- Sessões autenticadas com duração de 12 horas.
-- Confirmação da identidade SSH e controlo de alterações da chave.
-- Validação dos caminhos e bloqueio de ligações simbólicas.
-- Validação da geração da ligação nas operações associadas à consola.
-- Texto e HTML apresentados como conteúdo inerte na pré-visualização.
-- Imagens processadas com limites de tamanho e resolução.
-- Ausência de analítica, catálogos remotos e serviços externos em execução.
+- Authenticated sessions expire after 12 hours.
+- SSH host identity is verified, including key changes.
+- Paths are validated and symbolic links are blocked.
+- Console operations validate the connection generation.
+- Text and HTML previews are displayed as inert content.
+- Images are processed with size and resolution limits.
+- No analytics, remote catalogs, or external runtime services are used.
 
-As sessões autenticadas de uma instância partilham a mesma ligação à consola. Não existe isolamento entre utilizadores, sistema de contas ou permissões por pasta. O código de acesso protege uma instância pessoal; não constitui uma solução de alojamento público com múltiplos utilizadores.
+Authenticated sessions on the same instance share a console connection. There is no user isolation, account system, or per-folder authorization. The access code protects a personal instance; it is not a public multi-user hosting solution.
 
-## Desenvolvimento e testes
+## Development and testing
 
-### Servidor e interface de desenvolvimento
+### Development server and interface
 
 ```bash
-# Terminal 1 — servidor Python
+# Terminal 1 — Python server
 .venv/bin/python -m backend.app
 
-# Terminal 2 — Vite, com proxy da API para a porta 8765
+# Terminal 2 — Vite, with an API proxy to port 8765
 npm --prefix frontend run dev
 ```
 
-### Verificações automáticas
+### Automated checks
 
 ```bash
 .venv/bin/python -m pytest -q
 npm --prefix frontend run build
 
-# Instalar o navegador de teste uma vez
+# Install the test browser once
 cd frontend
 npx playwright install chromium
 
-# Com o servidor Python ativo na porta 8765
+# With the Python server running on port 8765
 npm test
 ```
 
-Os testes de interface simulam a consola. Não necessitam de ROMs nem de credenciais SSH. A formatação pode ser executada com `npm --prefix frontend run format`, a partir da raiz do projeto.
+Interface tests simulate the console and require no ROMs or SSH credentials. From the project root, run formatting with `npm --prefix frontend run format`.
 
-### Gerar capturas de ecrã
+### Generate screenshots
 
-Com o servidor ativo e Chromium instalado:
+With the server running and Chromium installed:
 
 ```bash
 node frontend/scripts/capture-screenshots.mjs
 ```
 
-O script utiliza dados sintéticos e escreve em `docs/screenshots/`, sem contactar a consola.
+The script uses synthetic data and writes to `docs/screenshots/` without contacting the console. Screenshots reflect the application's current interface language.
 
-### Testes de integração reais
+### Live integration tests
 
 ```bash
 .venv/bin/python -m tests.live_check
 .venv/bin/python -m tests.live_covers
 ```
 
-Estes testes são opcionais e **escrevem em pastas temporárias exclusivas na consola**. Solicitam o código de acesso e a palavra-passe interativamente. O teste geral verifica transferências, SHA-256, substituição, renomeação e subpastas; o teste de capas verifica associações, cópias de segurança e preservação de imagens.
+These optional tests **write to unique temporary folders on the console**. They request the access code and SSH password interactively. The general test checks transfers, SHA-256, overwriting, renaming, and subfolders. The cover test checks associations, backups, and image preservation.
 
-É necessário preparar a confiança SSH antes da execução. O teste geral consulta `~/.ssh/known_hosts`; o teste de capas pressupõe uma identidade já aceite na aplicação e imagens SNES existentes. Os testes limpam os seus artefactos no final, mas uma interrupção pode exigir limpeza manual da pasta temporária.
+SSH trust must be established before running them. The general test reads `~/.ssh/known_hosts`; the cover test expects a host identity already accepted in the application and existing SNES artwork. Tests clean up their artifacts when they finish, but an interruption may require manual removal of the temporary folder.
 
-## Arquitetura
+## Architecture
 
 ```mermaid
 flowchart LR
-    Browser["Navegador · PC ou telemóvel"] -->|HTTP na rede local| Server["Computador · FastAPI"]
-    Server -->|SFTP sobre SSH| Console["Consola ROCKNIX · /storage/roms"]
+    Browser["Browser · Desktop or mobile"] -->|HTTP on the local network| Server["Computer · FastAPI"]
+    Server -->|SFTP over SSH| Console["ROCKNIX console · /storage/roms"]
 ```
 
 ```text
 backend/
-  app.py           Sessões, API, ficheiros estáticos e streaming
-  remote.py        SFTP, identidade SSH, caminhos e publicação atómica
-  systems.py       Verificação limitada de presença de ROMs
-  covers.py        Imagens, gamelist e cópias de segurança
-  preview.py       Texto, imagens, conteúdo binário e intervalos HTTP
+  app.py           Sessions, API, static files, and streaming
+  remote.py        SFTP, host identity, paths, and atomic publication
+  systems.py       Bounded checks for ROM presence
+  covers.py        Images, gamelist updates, and backups
+  preview.py       Text, images, binary content, and HTTP ranges
 frontend/
-  src/App.tsx      Sessão, ligação, favoritos, painéis e transferências
-  src/components/  Explorador, informação, capas, temas e pré-visualização
-  public/          Favicon e ícones locais de sistemas
-  scripts/         Capturas reproduzíveis com dados de demonstração
-tests/             Testes Python e integração opcional
-frontend/tests/    Testes de interface com Playwright
-docs/screenshots/  Capturas para a documentação
+  src/App.tsx      Sessions, connections, favorites, panels, and transfers
+  src/components/  Explorer, information, covers, themes, and previews
+  public/          Favicon and local system icons
+  scripts/         Reproducible screenshots with demonstration data
+tests/             Python tests and optional live integration tests
+frontend/tests/    Playwright interface tests
+docs/screenshots/  Documentation screenshots
 ```
 
-## Resolução de problemas
+## Troubleshooting
 
-| Sintoma | Verificações |
+| Symptom | Checks |
 | --- | --- |
-| O telemóvel não abre a aplicação | Confirmar o IP do computador, a mesma rede e a autorização da porta na firewall; redes de convidados podem isolar dispositivos |
-| A consola não responde | Confirmar que está ligada e que o endereço IP está correto |
-| Ligação SSH recusada | Confirmar que o serviço SSH está ativo e que a porta está correta |
-| Autenticação recusada | Rever o utilizador e a palavra-passe nas definições da consola |
-| A identidade SSH mudou | Verificar se houve reinstalação, troca de consola ou alteração da chave antes de aceitar |
-| Os jogos não aparecem após o envio | Confirmar a pasta de destino e atualizar a lista de jogos na consola |
-| Um sistema não aparece num filtro | A verificação pode estar incompleta ou o formato não ser reconhecido; consultar **Todos os sistemas** |
-| Vídeo ou áudio não reproduz | O navegador pode não suportar o codec; descarregar o ficheiro para um leitor compatível |
-| O código de acesso deixou de funcionar | Consultar o terminal; um novo código é gerado após reiniciar o servidor |
-| As alterações da interface não aparecem | Atualizar a página e confirmar que `npm --prefix frontend run build` foi executado |
+| The phone cannot open the application | Check the computer's IP, network connectivity, and firewall permissions; guest networks may isolate devices |
+| The console does not respond | Check that it is powered on and its IP address is correct |
+| SSH connection refused | Check that SSH is enabled and the port is correct |
+| Authentication rejected | Verify the username and password in the console settings |
+| SSH host identity changed | Verify whether the console was reinstalled, replaced, or its key changed before accepting |
+| Uploaded games do not appear | Check the destination folder and refresh the game list on the console |
+| A system is missing from a filter | The scan may be incomplete or the format unrecognized; select **All systems** |
+| Video or audio does not play | The browser may not support the codec; download the file for a compatible player |
+| The access code no longer works | Check the terminal; restarting the server generates a new code |
+| Interface changes are not visible | Refresh the page and verify that `npm --prefix frontend run build` completed |
 
-## Trabalho futuro
+## Roadmap
 
-Os pontos seguintes são objetivos de evolução e **não estão implementados na versão atual**.
+The following items are planned improvements and **are not implemented in the current version**.
 
-- [ ] Camada de adaptação a dispositivos, independente de fabricantes e distribuições.
-- [ ] Perfis para várias consolas e endereços, com seleção da raiz de ficheiros.
-- [ ] Suporte a **SMB/Samba** e partilhas de rede.
-- [ ] Avaliação de outros protocolos, incluindo WebDAV, FTP/FTPS e armazenamento local.
-- [ ] Métodos adicionais de autenticação, incluindo chaves SSH.
-- [ ] Descoberta e diagnóstico de dispositivos na rede local.
-- [ ] Deteção de capacidades por protocolo: renomeação atómica, permissões e streaming.
-- [ ] Retoma de transferências, verificação de integridade e filas mais resilientes.
-- [ ] Empacotamento e instalação simplificados para Windows, macOS e Linux.
-- [ ] Internacionalização da interface e da documentação.
-- [ ] Matriz de compatibilidade validada pela comunidade.
+- [ ] Device adapters independent of console manufacturers and distributions.
+- [ ] Multiple console profiles, addresses, and configurable file roots.
+- [ ] **SMB/Samba** support for network shares.
+- [ ] Evaluation of additional protocols, including WebDAV, FTP/FTPS, and local storage.
+- [ ] Additional authentication methods, including SSH keys.
+- [ ] Local network device discovery and diagnostics.
+- [ ] Protocol capability detection for atomic rename, permissions, and streaming.
+- [ ] Resumable transfers, integrity verification, and more resilient queues.
+- [ ] Simplified packaging and installation for Windows, macOS, and Linux.
+- [ ] Interface and documentation internationalization, including an English interface.
+- [ ] A community-validated compatibility matrix.
 
-A evolução para vários protocolos deverá manter uma interface coerente e indicar quando uma operação não oferece as mesmas garantias de integridade disponíveis em SFTP.
+Multi-protocol support should retain a consistent interface while identifying operations that cannot provide the same integrity guarantees as the current SFTP implementation.
 
-## Contribuições
+## Contributing
 
-Relatórios de problemas e propostas de melhoria podem ser apresentados nas [Issues](https://github.com/jpbjesus/rom-dock/issues). Incluir o sistema anfitrião, a versão do navegador, o modelo da consola, a distribuição e passos de reprodução. Remover palavras-passe, códigos de acesso e dados pessoais de registos ou capturas.
+Report problems and propose improvements through [Issues](https://github.com/jpbjesus/rom-dock/issues). Include the host operating system, browser version, console model, console distribution, and reproduction steps. Remove passwords, access codes, and personal data from logs and screenshots.
 
-Antes de propor alterações, executar os testes Python, a compilação TypeScript/Vite e os testes de interface. Alterações a protocolos ou ao acesso a ficheiros devem incluir verificações de caminhos, autenticação e comportamento em caso de falha.
+Before submitting changes, run the Python tests, TypeScript/Vite build, and interface tests. Changes to protocols or file access should cover path validation, authentication, and failure handling. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Licenciamento e atribuições
+## Licensing and attribution
 
-A licença do código do projeto será indicada no repositório após a escolha pelo autor. A disponibilização pública do código não substitui uma licença de utilização ou distribuição.
+The project's code license will be added once selected by the author. Public source availability does not itself grant permission to use or redistribute the code.
 
-Os ícones de controladores são da coleção **Controllercons**, de Kieran McClung, sob **SIL Open Font License 1.1**. A licença e a atribuição encontram-se em [`frontend/public/system-icons/`](frontend/public/system-icons/). Os símbolos complementares de portáteis e as imagens de demonstração são produzidos pelo projeto. As dependências mantêm as respetivas licenças.
+Controller icons come from **Controllercons** by Kieran McClung, distributed under the **SIL Open Font License 1.1**. License and attribution files are included in [`frontend/public/system-icons/`](frontend/public/system-icons/). Additional handheld symbols and demonstration artwork were created for this project. Dependencies retain their respective licenses.
 
-O repositório não distribui ROMs, BIOS, jogos ou capas comerciais.
+This repository does not distribute ROMs, BIOS files, games, or commercial cover artwork.
